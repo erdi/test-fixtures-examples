@@ -1,0 +1,3 @@
+plugins {
+    id 'io.ratpack.ratpack-groovy' version '1.5.4'
+}

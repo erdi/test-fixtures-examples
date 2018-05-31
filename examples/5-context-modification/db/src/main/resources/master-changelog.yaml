@@ -1,0 +1,26 @@
+---
+databaseChangeLog:
+- changeSet:
+    id: add schema
+    author: erdi
+    changes:
+    - sql:
+        sql: CREATE SCHEMA DEFAULT_SCHEMA
+- changeSet:
+    id: add sent email table
+    author: erdi
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: ID
+            type: char(36)
+            constraints:
+              primaryKey: true
+        - column:
+            name: ADDRESS
+            type: varchar(1024)
+            constraints:
+              nullable: false
+        tableName: SENT_EMAIL
+        schemaName: DEFAULT_SCHEMA

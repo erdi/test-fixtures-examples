@@ -1,0 +1,10 @@
+dependencies {
+    compile project(':common:email')
+    compile project(':common:db-bootstrap')
+    compile project(':examples:5-context-modification:db')
+    compile 'io.dropwizard:dropwizard-core:1.3.2'
+    compile 'com.google.inject:guice:4.2.0'
+
+    testCompile 'io.dropwizard:dropwizard-testing:1.3.2'
+    testCompile 'io.dropwizard:dropwizard-client:1.3.2'
+}

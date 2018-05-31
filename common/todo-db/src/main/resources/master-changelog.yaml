@@ -1,0 +1,32 @@
+---
+databaseChangeLog:
+- changeSet:
+    id: add schema
+    author: erdi
+    changes:
+    - sql:
+        sql: CREATE SCHEMA DEFAULT_SCHEMA
+- changeSet:
+    id: add todo table
+    author: erdi
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: ID
+            type: char(36)
+            constraints:
+              primaryKey: true
+        - column:
+            name: TITLE
+            type: varchar(1024)
+            constraints:
+              nullable: false
+        - column:
+            name: COMPLETED
+            type: BOOLEAN
+            constraints:
+              nullable: false
+        tableName: TODO
+        schemaName: DEFAULT_SCHEMA
+

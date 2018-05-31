@@ -1,0 +1,111 @@
+---
+databaseChangeLog:
+- changeSet:
+    id: add schema
+    author: erdi
+    changes:
+    - sql:
+        sql: CREATE SCHEMA DEFAULT_SCHEMA
+- changeSet:
+    id: add tag table
+    author: erdi
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: ID
+            type: char(36)
+            constraints:
+              primaryKey: true
+        - column:
+            name: VALUE
+            type: varchar(1024)
+            constraints:
+              nullable: false
+              unique: true
+        tableName: TAG
+        schemaName: DEFAULT_SCHEMA
+- changeSet:
+    id: add author table
+    author: erdi
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: ID
+            type: char(36)
+            constraints:
+              primaryKey: true
+        - column:
+            name: FIRST_NAME
+            type: varchar(128)
+            constraints:
+              nullable: false
+        - column:
+            name: LAST_NAME
+            type: varchar(128)
+            constraints:
+              nullable: false
+        tableName: AUTHOR
+        schemaName: DEFAULT_SCHEMA
+- changeSet:
+    id: add post table
+    author: erdi
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: ID
+            type: char(36)
+            constraints:
+              primaryKey: true
+        - column:
+            name: TITLE
+            type: varchar(128)
+            constraints:
+              nullable: false
+        - column:
+            name: AUTHOR_ID
+            type: char(36)
+            constraints:
+              nullable: false
+              references: DEFAULT_SCHEMA.AUTHOR(ID)
+              foreignKeyName: FK_POST_AUTHOR_ID
+        tableName: POST
+        schemaName: DEFAULT_SCHEMA
+- changeSet:
+    id: add post to tag table
+    author: erdi
+    changes:
+    - createTable:
+        columns:
+        - column:
+            name: ID
+            type: char(36)
+            constraints:
+              primaryKey: true
+        - column:
+            name: POST_ID
+            type: char(36)
+            constraints:
+              nullable: false
+              references: DEFAULT_SCHEMA.POST(ID)
+              foreignKeyName: FK_POST_TAG_POST_ID
+        - column:
+            name: TAG_ID
+            type: char(36)
+            constraints:
+              nullable: false
+              references: DEFAULT_SCHEMA.TAG(ID)
+              foreignKeyName: FK_POST_TAG_TAG_ID
+        tableName: POST_TAG
+        schemaName: DEFAULT_SCHEMA
+- changeSet:
+    id: add unique constraint to post to tag table
+    author: erdi
+    changes:
+    - addUniqueConstraint:
+        columnNames: POST_ID, TAG_ID
+        tableName: POST_TAG
+        schemaName: DEFAULT_SCHEMA
+

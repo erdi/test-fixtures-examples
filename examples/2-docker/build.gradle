@@ -1,0 +1,11 @@
+dependencies {
+    compile 'io.dropwizard:dropwizard-core:1.3.2'
+    compile project(':common:db-bootstrap')
+    compile project(':common:todo-db')
+
+    testCompile 'io.dropwizard:dropwizard-client:1.3.2'
+    testCompile 'io.dropwizard:dropwizard-testing:1.3.2'
+    testCompile 'org.testcontainers:mssqlserver:1.7.3'
+
+    testRuntime 'com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre8'
+}

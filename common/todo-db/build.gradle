@@ -1,0 +1,7 @@
+apply plugin: JooqConventionPlugin
+
+dependencies {
+    dbSchemaBootstrap project(':common:db-bootstrap')
+
+    compile 'org.jooq:jooq:3.10.7'
+}

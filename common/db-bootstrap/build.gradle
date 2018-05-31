@@ -1,0 +1,7 @@
+dependencies {
+    runtime 'org.hsqldb:hsqldb:2.4.0'
+
+    compile 'com.zaxxer:HikariCP:3.1.0'
+    compile 'org.liquibase:liquibase-core:3.6.1'
+    compile 'javax.inject:javax.inject:1'
+}

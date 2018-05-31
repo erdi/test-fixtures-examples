@@ -1,0 +1,15 @@
+include 'common:db-bootstrap',
+    'common:email',
+    'common:todo-db'
+
+include 'examples:1-application-under-test:spring-boot',
+    'examples:1-application-under-test:ratpack',
+    'examples:1-application-under-test:dropwizard',
+    'examples:2-docker',
+    'examples:3-java-implementation',
+    'examples:4-wiremock',
+    'examples:5-context-modification:spring-boot',
+    'examples:5-context-modification:dropwizard-guice',
+    'examples:5-context-modification:db',
+    'examples:6-remote-control',
+    'examples:7-data-builders'

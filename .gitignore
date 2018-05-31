@@ -1,0 +1,6 @@
+.gradle
+**/src/jooq
+build
+*.iml
+*.ipr
+*.iws

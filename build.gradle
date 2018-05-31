@@ -1,0 +1,15 @@
+allprojects {
+	apply plugin: 'idea'
+}
+
+subprojects {
+	apply plugin: 'groovy'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		compile 'org.codehaus.groovy:groovy-all:2.4.15'
+	}
+}
